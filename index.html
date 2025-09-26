@@ -9,7 +9,7 @@
             margin: 0;
             padding: 0;
             min-height: 100vh;
-            background: linear-gradient(45deg, #ff69b4, #ff1493, #ffd700, #ff6347);
+            background: linear-gradient(45deg, #ff69b4, #ff1493, #fff8dc, #ff6347);
             background-size: 400% 400%;
             animation: gradientShift 6s ease infinite;
             font-family: 'Comic Sans MS', cursive, sans-serif;
@@ -26,8 +26,8 @@
         }
 
         .main-button {
-            padding: 30px 60px;
-            font-size: 24px;
+            padding: 20px 30px;
+            font-size: 18px;
             font-weight: bold;
             background: linear-gradient(45deg, #ff1493, #ff69b4);
             color: white;
@@ -37,6 +37,24 @@
             box-shadow: 0 10px 30px rgba(255, 20, 147, 0.5);
             transition: all 0.3s ease;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            max-width: 90%;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .main-button {
+                padding: 15px 25px;
+                font-size: 16px;
+                max-width: 85%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-button {
+                padding: 12px 20px;
+                font-size: 14px;
+                max-width: 80%;
+            }
         }
 
         .main-button:hover {
@@ -46,17 +64,37 @@
 
         .popup {
             position: fixed;
-            padding: 20px 30px;
-            border-radius: 20px;
+            padding: 15px 20px;
+            border-radius: 15px;
             color: white;
-            font-size: 18px;
+            font-size: 14px;
             font-weight: bold;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
             box-shadow: 0 8px 25px rgba(0,0,0,0.3);
             z-index: 1000;
             animation: popIn 0.5s ease-out;
             cursor: pointer;
-            border: 3px solid white;
+            border: 2px solid white;
+            max-width: 250px;
+            word-wrap: break-word;
+        }
+
+        @media (max-width: 768px) {
+            .popup {
+                padding: 12px 15px;
+                font-size: 13px;
+                max-width: 200px;
+                border-radius: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .popup {
+                padding: 10px 12px;
+                font-size: 12px;
+                max-width: 180px;
+                border-radius: 10px;
+            }
         }
 
         .popup:hover {
@@ -87,7 +125,7 @@
         }
 
         .popup.yellow {
-            background: linear-gradient(45deg, #ffd700, #ffb347);
+            background: linear-gradient(45deg, #fff8dc, #ffebcd);
         }
 
         .hearts {
@@ -102,9 +140,21 @@
 
         .heart {
             position: absolute;
-            font-size: 30px;
+            font-size: 20px;
             animation: floatUp 4s linear infinite;
             opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .heart {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .heart {
+                font-size: 16px;
+            }
         }
 
         @keyframes floatUp {
@@ -181,9 +231,11 @@
             popup.className = `popup ${colors[Math.floor(Math.random() * colors.length)]}`;
             popup.textContent = loveMessages[Math.floor(Math.random() * loveMessages.length)];
             
-            // Random position
-            const x = Math.random() * (window.innerWidth - 300);
-            const y = Math.random() * (window.innerHeight - 100);
+            // Random position with mobile consideration
+            const maxWidth = window.innerWidth - (window.innerWidth < 480 ? 200 : 280);
+            const maxHeight = window.innerHeight - 80;
+            const x = Math.random() * maxWidth;
+            const y = Math.random() * maxHeight;
             
             popup.style.left = x + 'px';
             popup.style.top = y + 'px';
