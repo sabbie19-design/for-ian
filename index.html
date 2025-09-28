@@ -1,286 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Love Ian</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            background: linear-gradient(45deg, #ff69b4, #ff1493, #fff8dc, #ff6347);
-            background-size: 400% 400%;
-            animation: gradientShift 6s ease infinite;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Love Popups for Ian 💖</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #000000, #1a001a, #330033, #660033, #cc0066);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      font-family: 'Satisfy', cursive;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      color: #fff;
+    }
 
-        .main-button {
-            padding: 20px 30px;
-            font-size: 18px;
-            font-weight: bold;
-            background: linear-gradient(45deg, #ff1493, #ff69b4);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            box-shadow: 0 10px 30px rgba(255, 20, 147, 0.5);
-            transition: all 0.3s ease;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            max-width: 90%;
-            text-align: center;
-        }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-        @media (max-width: 768px) {
-            .main-button {
-                padding: 15px 25px;
-                font-size: 16px;
-                max-width: 85%;
-            }
-        }
+    /* Button */
+    .main-button {
+      padding: 25px 50px;
+      font-size: 32px;
+      background: linear-gradient(45deg, #ff1a75, #ff66b3);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 10px 40px rgba(255, 20, 147, 0.7);
+      transition: all 0.3s ease;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.9);
+      font-family: 'Satisfy', cursive;
+    }
 
-        @media (max-width: 480px) {
-            .main-button {
-                padding: 12px 20px;
-                font-size: 14px;
-                max-width: 80%;
-            }
-        }
+    .main-button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 15px 60px rgba(255, 20, 147, 1);
+    }
 
-        .main-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 15px 40px rgba(255, 20, 147, 0.7);
-        }
+    /* Popups */
+    .popup {
+      position: fixed;
+      padding: 20px 30px;
+      border-radius: 20px;
+      font-size: 24px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+      box-shadow: 0 8px 25px rgba(255,0,102,0.6);
+      z-index: 1000;
+      animation: popIn 0.5s ease-out;
+      cursor: pointer;
+      border: 2px solid white;
+      font-family: 'Satisfy', cursive;
+      color: white;
+    }
 
-        .popup {
-            position: fixed;
-            padding: 15px 20px;
-            border-radius: 15px;
-            color: white;
-            font-size: 14px;
-            font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-            z-index: 1000;
-            animation: popIn 0.5s ease-out;
-            cursor: pointer;
-            border: 2px solid white;
-            max-width: 250px;
-            word-wrap: break-word;
-        }
+    .popup.pink {
+      background: linear-gradient(135deg, #000000, #ff1a75);
+    }
+    .popup.red {
+      background: linear-gradient(135deg, #000000, #ff3333);
+    }
+    .popup.yellow {
+      background: linear-gradient(135deg, #000000, #ffcc00);
+    }
 
-        @media (max-width: 768px) {
-            .popup {
-                padding: 12px 15px;
-                font-size: 13px;
-                max-width: 200px;
-                border-radius: 12px;
-            }
-        }
+    /* Floating Hearts */
+    .heart {
+      position: absolute;
+      font-size: 30px;
+      animation: floatUp 5s linear infinite;
+      opacity: 0.9;
+      text-shadow: 0 0 15px rgba(255, 20, 147, 0.8);
+      font-family: 'Satisfy', cursive;
+      color: #ff4da6;
+    }
 
-        @media (max-width: 480px) {
-            .popup {
-                padding: 10px 12px;
-                font-size: 12px;
-                max-width: 180px;
-                border-radius: 10px;
-            }
-        }
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(0);
+        opacity: 0;
+      }
+      20% {
+        opacity: 1;
+        transform: scale(1.2);
+      }
+      80% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-150px) scale(0);
+        opacity: 0;
+      }
+    }
 
-        .popup:hover {
-            transform: scale(1.05);
-        }
-
-        @keyframes popIn {
-            0% {
-                transform: scale(0) rotate(360deg);
-                opacity: 0;
-            }
-            50% {
-                transform: scale(1.2) rotate(180deg);
-                opacity: 0.8;
-            }
-            100% {
-                transform: scale(1) rotate(0deg);
-                opacity: 1;
-            }
-        }
-
-        .popup.pink {
-            background: linear-gradient(45deg, #ff69b4, #ff1493);
-        }
-
-        .popup.red {
-            background: linear-gradient(45deg, #ff6347, #dc143c);
-        }
-
-        .popup.yellow {
-            background: linear-gradient(45deg, #fff8dc, #ffebcd);
-        }
-
-        .hearts {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 500;
-        }
-
-        .heart {
-            position: absolute;
-            font-size: 20px;
-            animation: floatUp 4s linear infinite;
-            opacity: 0.8;
-        }
-
-        @media (max-width: 768px) {
-            .heart {
-                font-size: 18px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .heart {
-                font-size: 16px;
-            }
-        }
-
-        @keyframes floatUp {
-            0% {
-                transform: translateY(100vh) scale(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-                transform: scale(1);
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100px) scale(0);
-                opacity: 0;
-            }
-        }
-    </style>
+    @keyframes popIn {
+      from { transform: scale(0.5); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+  </style>
 </head>
 <body>
-    <button class="main-button" onclick="showLove()">
-        Hello Ian, my love. Click Here! 💕
-    </button>
 
-    <div class="hearts" id="hearts"></div>
+  <button class="main-button" onclick="showLove()">Click Me for Ian 💕</button>
 
-    <script>
-        const loveMessages = [
-            "I love you more than words can say! 💖",
-            "You make my heart skip a beat! 💓",
-            "Every day with you is a blessing! ✨",
-            "You're my sunshine on cloudy days! ☀️",
-            "I'm so lucky to have you, Ian! 🍀",
-            "Your smile lights up my world! 😊",
-            "I fall in love with you more each day! 💕",
-            "You're my favorite person ever! 👑",
-            "Thank you for being amazing! 🌟",
-            "I love your laugh so much! 😄",
-            "You make me feel so special! 💝",
-            "I love how you care for me! 🤗",
-            "You're my best friend and love! 👫",
-            "I love your beautiful eyes! 👀",
-            "You mean everything to me! 🌍",
-            "I love your warm hugs! 🤲",
-            "You're my happy place! 🏠",
-            "I love spending time with you! ⏰",
-            "You make me laugh every day! 😂",
-            "I'm obsessed with you! 😍",
-            "You're absolutely perfect! ✨",
-            "I love your kind heart! ❤️",
-            "You're my forever person! ♾️",
-            "I choose you always! 💍"
-        ];
+  <script>
+    const messages = [
+      "I love you so much, Ian 💖",
+      "You’re my forever 🌙",
+      "My heart beats for you 💕",
+      "You’re my safe place 🏡",
+      "Mahal na mahal kita 💓",
+      "Always you, always us ✨",
+      "My happiness is you 😘"
+    ];
 
-        const colors = ['pink', 'red', 'yellow'];
-        let popupCount = 0;
+    function showLove() {
+      for (let i = 0; i < 12; i++) {
+        setTimeout(() => createPopup(), i * 300);
+        setTimeout(() => createHeart(), i * 200);
+      }
+    }
 
-        function showLove() {
-            // Create multiple popups
-            for (let i = 0; i < 8; i++) {
-                setTimeout(() => {
-                    createPopup();
-                }, i * 200);
-            }
-            
-            // Start heart animation
-            createHearts();
-        }
+    function createPopup() {
+      const popup = document.createElement("div");
+      popup.classList.add("popup");
 
-        function createPopup() {
-            const popup = document.createElement('div');
-            popup.className = `popup ${colors[Math.floor(Math.random() * colors.length)]}`;
-            popup.textContent = loveMessages[Math.floor(Math.random() * loveMessages.length)];
-            
-            // Random position with mobile consideration
-            const maxWidth = window.innerWidth - (window.innerWidth < 480 ? 200 : 280);
-            const maxHeight = window.innerHeight - 80;
-            const x = Math.random() * maxWidth;
-            const y = Math.random() * maxHeight;
-            
-            popup.style.left = x + 'px';
-            popup.style.top = y + 'px';
-            
-            document.body.appendChild(popup);
-            
-            // Remove popup when clicked
-            popup.onclick = function() {
-                popup.remove();
-            };
-            
-            // Auto remove after 5 seconds
-            setTimeout(() => {
-                if (popup.parentNode) {
-                    popup.remove();
-                }
-            }, 5000);
-        }
+      const colors = ["pink", "red", "yellow"];
+      popup.classList.add(colors[Math.floor(Math.random() * colors.length)]);
 
-        function createHearts() {
-            const heartsContainer = document.getElementById('hearts');
-            const heartSymbols = ['💖', '💕', '💗', '💓', '💝', '💘', '💞', '💟'];
-            
-            for (let i = 0; i < 20; i++) {
-                setTimeout(() => {
-                    const heart = document.createElement('div');
-                    heart.className = 'heart';
-                    heart.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
-                    heart.style.left = Math.random() * window.innerWidth + 'px';
-                    heart.style.animationDelay = Math.random() * 2 + 's';
-                    heartsContainer.appendChild(heart);
-                    
-                    setTimeout(() => {
-                        heart.remove();
-                    }, 4000);
-                }, i * 100);
-            }
-        }
+      popup.innerText = messages[Math.floor(Math.random() * messages.length)];
 
-        // Add some sparkle effect
-        setInterval(() => {
-            if (Math.random() > 0.7) {
-                createHearts();
-            }
-        }, 3000);
-    </script>
+      popup.style.top = Math.random() * 80 + "vh";
+      popup.style.left = Math.random() * 80 + "vw";
+
+      document.body.appendChild(popup);
+
+      setTimeout(() => popup.remove(), 4000);
+    }
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerText = "❤️";
+
+      heart.style.top = Math.random() * 100 + "vh";
+      heart.style.left = Math.random() * 100 + "vw";
+
+      heart.style.fontSize = Math.random() * 20 + 20 + "px";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 5000);
+    }
+  </script>
+
 </body>
 </html>
