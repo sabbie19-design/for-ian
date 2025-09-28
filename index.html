@@ -20,6 +20,7 @@
       align-items: center;
       overflow: hidden;
       color: #fff;
+      text-align: center;
     }
 
     @keyframes gradientShift {
@@ -28,10 +29,10 @@
       100% { background-position: 0% 50%; }
     }
 
-    /* Button */
+    /* Main Button */
     .main-button {
-      padding: 25px 50px;
-      font-size: 32px;
+      padding: 20px 40px;
+      font-size: 28px;
       background: linear-gradient(45deg, #ff1a75, #ff66b3);
       color: white;
       border: none;
@@ -41,19 +42,20 @@
       transition: all 0.3s ease;
       text-shadow: 2px 2px 8px rgba(0,0,0,0.9);
       font-family: 'Satisfy', cursive;
+      max-width: 90%;
     }
 
     .main-button:hover {
-      transform: scale(1.1);
+      transform: scale(1.05);
       box-shadow: 0 15px 60px rgba(255, 20, 147, 1);
     }
 
     /* Popups */
     .popup {
       position: fixed;
-      padding: 20px 30px;
+      padding: 15px 20px;
       border-radius: 20px;
-      font-size: 24px;
+      font-size: 20px;
       text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
       box-shadow: 0 8px 25px rgba(255,0,102,0.6);
       z-index: 1000;
@@ -62,22 +64,18 @@
       border: 2px solid white;
       font-family: 'Satisfy', cursive;
       color: white;
+      word-wrap: break-word;
+      max-width: 80%;
     }
 
-    .popup.pink {
-      background: linear-gradient(135deg, #000000, #ff1a75);
-    }
-    .popup.red {
-      background: linear-gradient(135deg, #000000, #ff3333);
-    }
-    .popup.yellow {
-      background: linear-gradient(135deg, #000000, #ffcc00);
-    }
+    .popup.pink { background: linear-gradient(135deg, #000000, #ff1a75); }
+    .popup.red { background: linear-gradient(135deg, #000000, #ff3333); }
+    .popup.yellow { background: linear-gradient(135deg, #000000, #ffcc00); }
 
     /* Floating Hearts */
     .heart {
       position: absolute;
-      font-size: 30px;
+      font-size: 24px;
       animation: floatUp 5s linear infinite;
       opacity: 0.9;
       text-shadow: 0 0 15px rgba(255, 20, 147, 0.8);
@@ -86,26 +84,44 @@
     }
 
     @keyframes floatUp {
-      0% {
-        transform: translateY(0) scale(0);
-        opacity: 0;
-      }
-      20% {
-        opacity: 1;
-        transform: scale(1.2);
-      }
-      80% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-150px) scale(0);
-        opacity: 0;
-      }
+      0% { transform: translateY(0) scale(0); opacity: 0; }
+      20% { opacity: 1; transform: scale(1.2); }
+      80% { opacity: 1; }
+      100% { transform: translateY(-150px) scale(0); opacity: 0; }
     }
 
     @keyframes popIn {
       from { transform: scale(0.5); opacity: 0; }
       to { transform: scale(1); opacity: 1; }
+    }
+
+    /* 📱 Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .main-button {
+        font-size: 22px;
+        padding: 15px 25px;
+      }
+      .popup {
+        font-size: 18px;
+        padding: 10px 15px;
+      }
+      .heart {
+        font-size: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .main-button {
+        font-size: 20px;
+        padding: 12px 20px;
+      }
+      .popup {
+        font-size: 16px;
+        max-width: 90%;
+      }
+      .heart {
+        font-size: 18px;
+      }
     }
   </style>
 </head>
